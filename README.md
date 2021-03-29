@@ -1,2 +1,2 @@
 # my-gh-action
-Testing Github actions
+A GH action :)
