@@ -6,4 +6,5 @@ echo It contains:
 ls $repo_path
 
 ssh_command='ssh michael@1.2.3.4'
-echo "::set-output name=ssh-command::$ssh_command"
+echo SSH into the repo using this command:
+echo $ssh_command

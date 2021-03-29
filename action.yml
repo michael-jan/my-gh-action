@@ -5,9 +5,6 @@ inputs:
     description: 'Path to repo'
     required: true
 outputs:
-  random-number:
-    description: "SSH command to enter VM"
-    value: ${{ steps.entry.outputs.ssh-command }}
 runs:
   using: "composite"
   steps:
