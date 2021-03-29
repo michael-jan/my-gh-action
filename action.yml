@@ -4,7 +4,6 @@ inputs:
   repo-path:
     description: 'Path to repo'
     required: true
-outputs:
 runs:
   using: "composite"
   steps:
