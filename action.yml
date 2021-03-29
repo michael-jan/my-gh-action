@@ -1,21 +1,16 @@
-name: 'Hello World'
-description: 'Greet someone'
+name: 'Build'
+description: 'Build kernel and run it in VM'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  repo-path:
+    description: 'Path to repo'
     required: true
-    default: 'World'
 outputs:
   random-number:
-    description: "Random number"
-    value: ${{ steps.random-number-generator.outputs.random-id }}
+    description: "SSH command to enter VM"
+    value: ${{ steps.entry.outputs.ssh-command }}
 runs:
   using: "composite"
   steps:
-    - run: echo Hello ${{ inputs.who-to-greet }}.
-      shell: bash
-    - id: random-number-generator
-      run: echo "::set-output name=random-id::$(echo $RANDOM)"
-      shell: bash
-    - run: ${{ github.action_path }}/goodbye.sh
+    - id: entry
+      run: ${{ github.action_path }}/entry.sh ${{ inputs.repo-path }}
       shell: bash
